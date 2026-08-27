@@ -1,0 +1,58 @@
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --accent: #38bdf8;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: #334155;
+}
+
+body {
+    background-color: var(--bg) !important;
+    color: var(--text) !important;
+    font-family: 'Quicksand', sans-serif !important;
+    line-height: 1.6 !important;
+}
+
+table {
+    max-width: 1000px !important;
+    width: 95% !important;
+    margin: 1.5rem auto !important;
+    background-color: var(--card) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+}
+
+table td {
+    color: var(--text) !important;
+    border-color: var(--border) !important;
+}
+
+th, .tg-7btt, .tg-bobw, table th {
+    background-color: #0f172a !important;
+    color: #38bdf8 !important;
+    font-weight: 700 !important;
+    padding: 0.75rem 1rem !important;
+    border: 1px solid var(--border) !important;
+    text-align: center !important;
+}
+
+h1#home {
+    color: var(--accent) !important;
+    font-size: 2rem !important;
+}
+
+h3 {
+    color: var(--text-muted) !important;
+    font-size: 1.1rem !important;
+}
+
+a {
+    color: var(--accent) !important;
+}
+
+a:hover {
+    color: #818cf8 !important;
+}
