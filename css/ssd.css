@@ -23,11 +23,13 @@ table {
     border-radius: 12px !important;
     border-collapse: separate !important;
     border-spacing: 0 !important;
+    overflow: hidden !important;
 }
 
 table td {
     color: var(--text) !important;
     border-color: var(--border) !important;
+    padding: 0.75rem 1rem !important;
 }
 
 th, .tg-7btt, .tg-bobw, table th {
@@ -39,6 +41,14 @@ th, .tg-7btt, .tg-bobw, table th {
     text-align: center !important;
 }
 
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+tbody tr:hover {
+    background-color: rgba(56, 189, 248, 0.06) !important;
+}
+
 h1#home {
     color: var(--accent) !important;
     font-size: 2rem !important;
@@ -47,6 +57,15 @@ h1#home {
 h3 {
     color: var(--text-muted) !important;
     font-size: 1.1rem !important;
+}
+
+b#about, b#lecture, b#cpolicy, b#schedule, b#lab, b#activity, b#staff {
+    display: inline-block !important;
+    font-size: 1.25rem !important;
+    color: var(--accent) !important;
+    margin-bottom: 0.5rem !important;
+    border-bottom: 2px solid var(--accent) !important;
+    padding-bottom: 0.2rem !important;
 }
 
 a {
