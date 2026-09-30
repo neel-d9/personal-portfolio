@@ -1,68 +1,253 @@
+<!DOCTYPE html>
 <html>
-<head><title>CS6.302 SSD Monsoon 2026</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
-<link rel="stylesheet" href="css/ssd.css">
-<style>
-body {font-family: Quicksand; font-size: 20px; color:#333}
-        table
-        {
-            font-family: Quicksand; font-size:20px; color:#333;
-            border-collapse:collapse;
-            width:1000px;
-            padding:10px;
-            border-spacing:10px
-			
+<head>
+    <title>CS6.302 SSD Monsoon 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/ssd.css">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --accent: #38bdf8;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
         }
 
-	.light-text-row {
-        color: #ADADAD; 
-    }
+        body {
+            background-color: var(--bg) !important;
+            color: var(--text) !important;
+            font-family: 'Quicksand', sans-serif !important;
+            line-height: 1.6 !important;
+            padding: 1rem 0 !important;
+        }
 
-</style>
+        body.light-theme {
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --accent: #0284c7;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #cbd5e1;
+        }
 
+        table {
+            max-width: 1000px !important;
+            width: 95% !important;
+            margin: 1.5rem auto !important;
+            background-color: var(--card) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 12px !important;
+            border-collapse: separate !important;
+            border-spacing: 0 !important;
+            overflow: hidden !important;
+        }
 
-	<script>
-  
-  const lastModified = new Date(document.lastModified);
- 
-  const formattedDate = lastModified.toLocaleString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-  });
+        table td {
+            color: var(--text) !important;
+            border-color: var(--border) !important;
+            padding: 0.75rem 1rem !important;
+        }
 
-  document.getElementById("lastUpdated").innerHTML += formattedDate;
-</script>
-<script>
-function startTime() {
-  const today = new Date();
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('txt').innerHTML = today 
-  setTimeout(startTime, 1000);
-}
+        th, .tg-7btt, .tg-bobw, table th {
+            background-color: #0f172a !important;
+            color: #38bdf8 !important;
+            font-weight: 700 !important;
+            padding: 0.75rem 1rem !important;
+            border: 1px solid var(--border) !important;
+            text-align: center !important;
+        }
 
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
-}
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        body.light-theme th, body.light-theme .tg-7btt, body.light-theme .tg-bobw, body.light-theme table th {
+            background-color: #f1f5f9 !important;
+            color: #0284c7 !important;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.02) !important;
+        }
+
+        tbody tr:hover {
+            background-color: rgba(56, 189, 248, 0.06) !important;
+        }
+
+        h1#home {
+            color: var(--accent) !important;
+            font-size: 2rem !important;
+            font-weight: 700 !important;
+        }
+
+        h3 {
+            color: var(--text-muted) !important;
+            font-size: 1.1rem !important;
+        }
+
+        b#about, b#lecture, b#cpolicy, b#schedule, b#lab, b#activity, b#staff {
+            display: inline-block !important;
+            font-size: 1.25rem !important;
+            color: var(--accent) !important;
+            margin-bottom: 0.5rem !important;
+            border-bottom: 2px solid var(--accent) !important;
+            padding-bottom: 0.2rem !important;
+        }
+
+        ul {
+            padding-left: 1.25rem !important;
+        }
+
+        li {
+            margin-bottom: 0.75rem !important;
+            color: var(--text) !important;
+        }
+
+        li b {
+            color: var(--accent) !important;
+        }
+
+        hr {
+            border-top: 1px solid var(--border) !important;
+            opacity: 0.5 !important;
+        }
+
+        a {
+            color: var(--accent) !important;
+            transition: color 0.2s ease !important;
+        }
+
+        a:hover {
+            color: #818cf8 !important;
+            text-decoration: none !important;
+        }
+
+        font {
+            color: var(--text-muted) !important;
+        }
+
+        #txt {
+            color: var(--accent) !important;
+            font-weight: 600 !important;
+            margin-top: 0.5rem !important;
+        }
+
+        .search-container {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-box {
+            padding: 8px 14px;
+            font-family: Quicksand;
+            font-size: 14px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background-color: var(--bg);
+            color: var(--text);
+            width: 320px;
+        }
+
+        .theme-toggle-btn {
+            float: right;
+            padding: 6px 14px;
+            font-family: Quicksand;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background-color: var(--card);
+            color: var(--accent);
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            opacity: 0.85;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                width: 98% !important;
+                font-size: 0.9rem !important;
+            }
+            
+            table td, th {
+                padding: 0.5rem !important;
+            }
+        }
+    </style>
+    <script>
+        function startTime() {
+            const today = new Date();
+            let h = today.getHours();
+            let m = today.getMinutes();
+            let s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            let clockElem = document.getElementById('txt');
+            if (clockElem) {
+                clockElem.innerHTML = today;
+            }
+            setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i; }
+            return i;
+        }
+
+        function toggleTheme() {
+            let body = document.body;
+            body.classList.toggle("light-theme");
+            let btn = document.getElementById("themeToggleBtn");
+            if (body.classList.contains("light-theme")) {
+                btn.textContent = "Switch to Dark Mode";
+            } else {
+                btn.textContent = "Switch to Light Mode";
+            }
+        }
+
+        function filterLectures() {
+            let input = document.getElementById("lectureSearchInput");
+            let query = input.value.toLowerCase();
+            let rows = document.querySelectorAll(".tg tbody tr");
+            for (let i = 0; i < rows.length; i++) {
+                let text = rows[i].textContent || rows[i].innerText;
+                if (text.toLowerCase().indexOf(query) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+
+        window.addEventListener("DOMContentLoaded", function() {
+            let lastModifiedElem = document.getElementById("lastUpdated");
+            if (lastModifiedElem) {
+                const lastModified = new Date(document.lastModified);
+                const formattedDate = lastModified.toLocaleString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                lastModifiedElem.innerHTML += formattedDate;
+            }
+        });
+    </script>
 </head>
 <body onload="startTime()">
-	<!--<script>
-	alert("All the Best for your Final Exam!"");
-		</script>-->
 <table align="center" width="100%" cellspacing="10" cellpadding="10" border="0">
 <tr>
-<td><h1 align="center" id="home">CS6.302 - Software System Development</h1><h3 align="center">Software Engineering Research Center, IIIT Hyderabad</h3> <h3 align="center">Monsoon 2026</h3></td>
+<td>
+    <button id="themeToggleBtn" class="theme-toggle-btn" onclick="toggleTheme()">Switch to Light Mode</button>
+    <h1 align="center" id="home">CS6.302 - Software System Development</h1>
+    <h3 align="center">Software Engineering Research Center, IIIT Hyderabad</h3>
+    <h3 align="center">Monsoon 2026</h3>
+</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="#about">About</a>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="#lecture">Lecture/Lab/Office Hours</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="#cpolicy">Course Policy</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="#schedule">Lectures</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;  <a href="#lab">Lab</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="#activity">Exams</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="#staff">Staff</a>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <hr></td>
@@ -131,17 +316,6 @@ Designed for students with a fundamental background in programming, this course 
 </table>
 </li>
 <br>
-<!--<li><b>Evaluation Rubric:</b> All evaluations as part of this course follow below evaluation rubric. TAs will follow below guidelines for evaluating assignments and lab activities for this course.
-<br>
-<br>
-<table border="1" align="center" width="10%">
-<tr><th>Rubric</th><th>Input(15%)</th><th>Logic(60%)</th><th>Output(15%)</th><th>Submission(10%)</th></tr>
-<tr><td>Exceptional (100%)</td><td>All inputs are working as per the requirements</td><td>Logic is accurate and as per the requirements defined in the question</td><td>All outputs are returned as per the requirements</td><td>Script submissions are correct and as per requirements</td></tr>
-<tr><td>Acceptable (70%)</td><td>Inputs are partially working as per the requirements</td><td>Logic is almost correct and as per the requirements defined in the question</td><td>Outputs are partially returned as per the requirements</td><td>Script submissions is partially correct and as per requirements</td></tr>
-<tr><td>Beginning (30%)</td><td>At least one input is working as per the requirements</td><td>Logic is partially correct and as per the requirements defined in the question</td><td>At least one output is returned as per the requirement</td><td>Atleast one part of the script submission is correct and as per requirements</td></tr>
-<tr><td>No Response (0%)</td><td>None of the inputs are working as per the requirements</td><td>Logic is incorrect and not as per the requirements defined in the question</td><td>None of the outputs are returned as per the requirements</td><td>Script submissions is incorrect and not as per requirements</td></tr>
-</table> 
-</li>-->
 </ul><hr>
 </p>
 </td>
@@ -151,8 +325,13 @@ Designed for students with a fundamental background in programming, this course 
 
 <table border="1" align="center" width="10%" class="tg">
 <tr>
-<td colspan="5"><p align="left"><b id="schedule">&nbsp;Lecture Schedule & Content</b>&nbsp;&nbsp;&nbsp;[<a href="#home">go to top</a>]</p></td>
-</tr >
+<td colspan="5">
+    <p align="left"><b id="schedule">&nbsp;Lecture Schedule & Content</b>&nbsp;&nbsp;&nbsp;[<a href="#home">go to top</a>]</p>
+    <div class="search-container">
+        <input type="text" id="lectureSearchInput" class="search-box" onkeyup="filterLectures()" placeholder="Search lectures by topic or date...">
+    </div>
+</td>
+</tr>
   <tr align="center">
     <th class="tg-7btt">Lecture No</th>
     <th class="tg-7btt">Date</th>
@@ -365,7 +544,7 @@ Designed for students with a fundamental background in programming, this course 
 <table border="1" align="center" width="10%" class="tg">
 <tr>
 <td colspan="5"><p align="left"><b id="lab">&nbsp;Lab Schedule & Content</b>&nbsp;&nbsp;&nbsp;[<a href="#home">go to top</a>]</p></td>
-</tr >
+</tr>
   <tr align="center">
     <th class="tg-bobw">Lab No</th>
     <th class="tg-bobw">Date</th>
@@ -469,7 +648,7 @@ Designed for students with a fundamental background in programming, this course 
     <td class="tg-8d8j">TBA</td>
     <td class="tg-8d8j">TBA</td>
   </tr>
-	 <tr>
+  <tr>
     <td class="tg-8d8j">6</td>
     <td class="tg-8d8j">MID 2 Hackathon</td>
     <td class="tg-8d8j">TBA</td>
@@ -506,9 +685,6 @@ Designed for students with a fundamental background in programming, this course 
   </tr>
 </tbody></table>
 
-
-
-
 <table align="center" width="10%" border="0">
 <tr>
 <td><hr> <p align="left"><b id="staff">Staff:</b>&nbsp;&nbsp;&nbsp;[<a href="#home">go to top</a>] </p></td>
@@ -532,10 +708,8 @@ Important Links: <a href="https://intranet.iiit.ac.in/offices/static/files/Monso
 		Course site hosted by github.io using BORING (&#129397;) course template <br>
 		
 		Course Policy credits to <a href="https://faculty.iiit.ac.in/~raghu.reddy/Home.html">Dr. Raghu Reddy</a> & <a href="https://karthikvaidhyanathan.com/">Dr. Karthik Vaidhyanathan</a><br>
-	<a href="https://serc.iiit.ac.in">Software Engineering Research Center</a>,<a href="https://iiit.ac.in">IIIT Hyderabad</a></font><br> </p><!--<br><p id="lastUpdated" align="center"><font face="Quicksand" size="2">Site Last Updated on: </font></p>--></td>
+	<a href="https://serc.iiit.ac.in">Software Engineering Research Center</a>,<a href="https://iiit.ac.in">IIIT Hyderabad</a></font><br> </p><p id="lastUpdated" align="center"><font face="Quicksand" size="2">Site Last Updated on: </font></p></td>
 </tr>
 </table>
-
-
-	</body>
+</body>
 </html>
